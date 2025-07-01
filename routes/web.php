@@ -17,4 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/voedselpakketten', function () {
+    return view('voedselpakketten.index');
+})->middleware(['auth', 'verified'])->name('voedselpakketten.index');
+
 require __DIR__.'/auth.php';
